@@ -1,0 +1,39 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	width: 100%;
+	height: 100%;
+
+	color-scheme: light dark;
+
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	--color-red: #EB5353;
+	--color-green: #36AE7C;
+	--color-yellow: #F9D923;
+	--color-blue: #187498;
+
+	--font-1: Inter;
+	--font-2: sysmtem-ui;
+	--font-3: Avenir;
+	--font-4: Helvetica;
+	--font-5: Arial;
+	--font-6: sans-serif;
+	--font-7: Courier New;
+	--font-8: Inconsolata;
+	--font-9: Fira Code;
+
+}
+
+#app, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	color: #000;
+}

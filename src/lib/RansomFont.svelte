@@ -1,0 +1,64 @@
+<script lang="ts">
+	import { scale } from "svelte/transition";
+	import RansomChar from "./RansomChar.svelte";
+	import { quintOut } from "svelte/easing";
+	import { onMount } from "svelte";
+
+	export let input: string;
+
+	const textArr = input
+		.split("")
+		.map((a, i) => ({ visible: i == 0 ? true : false, content: a }));
+
+	let isVisible: boolean = false;
+	let targetDiv: Element;
+
+	const handleIntersection = (entries: any) => {
+		entries.forEach((entry: any) => {
+			console.log(entry);
+			isVisible = entry.isIntersecting;
+		});
+	};
+
+	onMount(() => {
+		const observer = new IntersectionObserver(handleIntersection, {
+			threshold: 0.5,
+		});
+		observer.observe(targetDiv);
+
+		return () => observer.disconnect();
+	});
+</script>
+
+<span bind:this={targetDiv}>
+	{#each textArr as text, key}
+		{#if isVisible}
+			<span
+				class="char"
+				in:scale={{
+					delay: 250 + key * 100,
+					duration: 300,
+					easing: quintOut,
+				}}
+			>
+				<RansomChar char={text.content} num={key} />
+			</span>
+		{/if}
+	{/each}
+</span>
+
+<style>
+	.char {
+        display: inline-block;
+        filter: drop-shadow(1rem 1rem 0.8rem rgba(74, 74, 74, 0.5));
+	}
+
+    span {
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 1000px) {
+       
+    }
+</style>
+

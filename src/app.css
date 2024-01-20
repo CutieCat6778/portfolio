@@ -7,7 +7,7 @@
 	height: 100%;
 
 	color-scheme: light dark;
-	filter: url("#noise");
+	z-index: 1;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -18,6 +18,8 @@
 	--color-green: #36AE7C;
 	--color-yellow: #F9D923;
 	--color-blue: #187498;
+
+	--color-red2: #eb53537e;
 
 	--font-color: #cecece;
 
@@ -30,7 +32,6 @@
 	--font-7: Courier New;
 	--font-8: Inconsolata;
 	--font-9: Fira Code;
-
 }
 
 #app, body {

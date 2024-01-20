@@ -75,11 +75,16 @@
 		return shapes[Math.round(Math.random() * shapes.length - 1)];
 	}
 
+	function getRandomFontWeight() {
+		return (Math.round(Math.random() * 3) + 6) * 100;
+	}
+
 	const backgroundColor = getBackgroundColor();
 	const angle = getRandomAngle(10, 20);
 	const clipPath = getClipPath();
 	const fontFamily = getFontFamily();
-	const fontS = getRandomNumberInRange(1, 1.8, fontSize);
+	const fontS = getRandomNumberInRange(0, 5, fontSize);
+	const fontWeight = getRandomFontWeight();
 </script>
 
 <span
@@ -87,7 +92,7 @@
 		? `transform: rotate(${angle}deg)`
 		: null};clip-path: {clipPath}"
 >
-	<h1 style="font-family: {fontFamily};font-size: {fontS}vw">
+	<h1 style="font-family: {fontFamily};font-size: {fontS}vw;font-weight: {fontWeight}">
 		{char}
 	</h1>
 </span>

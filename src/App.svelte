@@ -39,20 +39,10 @@
 	</header>
 
 	<section>
-		<div bind:this={targetDivs[0]} class="title">
+		<div bind:this={targetDivs[0]} class={"content"}>
 			{#if isVisible[0]}
-				<h1
-					transition:fly={{
-						delay: 600,
-						duration: 800,
-						x: -100,
-						opacity: 0,
-						easing: quintOut,
-					}}
-				>
-					What's up!
-				</h1>
-				<h2
+				<h3
+					class="first-h3"
 					transition:fly={{
 						delay: 1000,
 						duration: 800,
@@ -61,38 +51,29 @@
 						easing: quintOut,
 					}}
 				>
-					My name is <GenerateColorFullText input="Thinh Nguyen" />
-				</h2>
-			{/if}
-		</div>
-		<div bind:this={targetDivs[1]} class={"content"}>
-			{#if isVisible[1]}
-				<h3
+					I'm a self-taught web developer who's been working with
+					JavaScript for over four years. It's my go-to language, and
+					I've used it extensively in various projects that you can
+					check out on my <a href="https://github.com/CutieCat6778">GitHub</a>.<br/><br/>
+					If you want to contact to me, you can email to <a href="mailto:contact@thinis.de">contact@thinis.de</a>
+				</h3>
+				<img
+					src="/2.png"
+					alt="1.png"
 					transition:fly={{
-						delay: 1000,
+						delay: 1600,
 						duration: 800,
 						x: -100,
 						opacity: 0,
 						easing: quintOut,
 					}}
-				>
-					This is under construction 👷🚧
-				</h3>
-				<h3
-					transition:fly={{
-						delay: 1200,
-						duration: 800,
-						x: -100,
-						opacity: 0,
-						easing: quintOut,
-					}}
-				>
-					This is under construction 👷🚧
-				</h3>
+				/>
 			{/if}
 		</div>
 	</section>
 </main>
+
+<div class="background"></div>
 
 <svg id="filter" style="display: none;opacity: 0.5;">
 	<filter id="noise">
@@ -116,9 +97,21 @@
 </svg>
 
 <style>
+	div.background {
+		height: 200%;
+		width: 100%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		position: absolute;
+		background-color: #111;
+		z-index: -1;
+		filter: url("#noise");
+	}
+
 	main {
 		height: 200%;
-		z-index: 1;
 	}
 
 	header {
@@ -126,6 +119,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		filter: url("#noise");
 	}
 
 	section {
@@ -135,27 +129,33 @@
 		margin-top: 3rem;
 	}
 
-	section div h1 {
-		font-size: 3rem;
-		margin: 0;
-	}
-
-	section div h2 {
-		margin: 0;
-	}
-
-	section div.title {
-		text-align: center;
-	}
-
 	section div.content {
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
 		width: 100%;
+		margin-top: 3rem;
+		background-color: var(--color-red2);
+		width: 80%;
+		padding-top: 1rem;
+		border-radius: 1rem;
+		box-shadow: 0rem 0rem 3rem 1rem #1a1a1a;
 	}
 
-	section div.content:first-child {
+	div.content h3.first-h3 {
 		margin-right: 1rem;
+		max-width: 50%;
+		filter: url("#noise");
+		font-size: 1.4rem;
+		font-family: "Times New Roman", Times, serif;
+	}
+
+	a {
+		color: var(--font-color);
+	}
+
+	div.content img {
+		filter: none;
+		z-index: 1;
 	}
 </style>

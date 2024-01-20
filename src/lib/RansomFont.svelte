@@ -15,15 +15,16 @@
 
 	const handleIntersection = (entries: any) => {
 		entries.forEach((entry: any) => {
-			console.log(entry);
 			isVisible = entry.isIntersecting;
+			if(isVisible) observer.disconnect();
 		});
 	};
 
+	const observer = new IntersectionObserver(handleIntersection, {
+		threshold: 0.5,
+	});
+
 	onMount(() => {
-		const observer = new IntersectionObserver(handleIntersection, {
-			threshold: 0.5,
-		});
 		observer.observe(targetDiv);
 
 		return () => observer.disconnect();
@@ -37,7 +38,7 @@
 				class="char"
 				in:scale={{
 					delay: 250 + key * 100,
-					duration: 300,
+					duration: 800,
 					easing: quintOut,
 				}}
 			>

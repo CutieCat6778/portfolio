@@ -26,7 +26,6 @@
 		if (char == " ") return;
 		const index = num % colors.length;
 		const style = `var(${colors[index]})`;
-		console.log(style, index);
 		return style;
 	}
 
@@ -34,7 +33,6 @@
 		if (char == " ") return;
 		const index = num % colors.length;
 		const style = `var(${fonts[index]})`;
-		console.log(style, index);
 		return style;
 	}
 
@@ -85,12 +83,11 @@
 </script>
 
 <span
-	style="background-color: {backgroundColor};height: {fontSize *
-		36.3}px;width: {fontSize * 28.4}px;{Math.random() < 0.5
+	style="background-color: {backgroundColor};height: {fontSize * 2.33}vw;width: {fontSize * 1.44}vw;{Math.random() < 0.5
 		? `transform: rotate(${angle}deg)`
 		: null};clip-path: {clipPath}"
 >
-	<h1 style="font-family: {fontFamily};font-size: {fontS}rem">
+	<h1 style="font-family: {fontFamily};font-size: {fontS}vw">
 		{char}
 	</h1>
 </span>
@@ -106,5 +103,6 @@
 	h1 {
 		margin: 0;
 		padding: 0;
+		color: #000;
 	}
 </style>

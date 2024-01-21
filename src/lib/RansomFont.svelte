@@ -52,6 +52,7 @@
 	.char {
         display: inline-block;
         filter: drop-shadow(1rem 1rem 0.8rem rgba(74, 74, 74, 0.5));
+		margin: 0.3rem;
 	}
 
     span {

@@ -88,7 +88,6 @@
 							>
 						</h3>
 					</div>
-
 					<div style="opacity:0;">a</div>
 				</div>
 				<img
@@ -161,7 +160,7 @@
 		padding-right: 1rem;
 	}
 
-	header div {
+	header > div {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -169,22 +168,18 @@
 		text-align: center;
 	}
 
-	header div:nth-child(2) {
+	header > div:nth-child(2) {
 		justify-content: center;
 	}
 
-	header div:nth-child(2) div {
-		width: min-content;
-	}
-
-	header div:last-child a:first-child {
+	header > div:last-child > a:first-child {
 		font-family: "Libre Barcode 128", system-ui;
 		text-decoration: none;
 		font-size: 4rem;
 		width: fit-content;
 	}
 
-	header div:last-child a:last-child {
+	header > div:last-child > a:last-child {
 		font-size: 1.6rem;
 		text-decoration: none;
 		width: fit-content;
@@ -197,9 +192,9 @@
 		height: 50%;
 	}
 
-	section div.content {
+	section > div.content {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: flex-end;
 		margin-top: 3rem;
 		background-color: var(--color-red2);
@@ -231,7 +226,7 @@
 		margin-right: auto;
 	}
 
-	div.action-menu span {
+	div.action-menu > span {
 		height: 1rem;
 		width: 1rem;
 		display: flex;
@@ -244,21 +239,21 @@
 		box-shadow: 0rem 0rem 1rem 0.1rem #111111ce;
 	}
 
-	div.action-menu span:hover {
+	div.action-menu > span:hover {
 		opacity: 1;
 	}
 
-	div.action-menu span:first-child {
+	div.action-menu > span:first-child {
 		background-color: var(--color-green);
 		margin-right: 0.3rem;
 	}
 
-	div.action-menu span:nth-child(2) {
+	div.action-menu > span:nth-child(2) {
 		background-color: var(--color-red);
 		margin-right: 0.3rem;
 	}
 
-	div.action-menu span:last-child {
+	div.action-menu > span:last-child {
 		background-color: var(--color-yellow);
 	}
 
@@ -277,6 +272,9 @@
 		border-radius: 1rem;
 		box-shadow: 0.5rem 0.5rem 1rem 0.3rem #11111148;
 		z-index: 1;
+		width: 100%;
+		margin-left: 1rem;
+		max-width: 40rem;
 	}
 
 	a {
@@ -290,55 +288,36 @@
 		font-weight: bold;
 	}
 
-	div.content img {
+	div.content > img {
 		filter: none;
 		padding-top: 1rem;
-		overflow-x: hidden;
-		width: 27vw;
-		min-width: 350px;
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		z-index: 0;
 	}
 
-	@media only screen and (max-width: 1000px) {
+	@media only screen and (max-width: 1280px) {
 		h3.first-h3 {
 			padding-left: 1rem;
 			padding-right: 1rem;
 		}
 
-		header div:nth-child(2) {
+		header > div:nth-child(2) {
 			flex-direction: column;
 		}
 
-		header div a.link {
+		header > div a.link {
 			display: none;
 		}
 
-		header div {
+		header > div {
 			justify-content: center;
 			align-items: center;
 		}
-	}
 
-	@media only screen and (max-width: 480px) {
-		header div h4 {
-			font-size: 0.8rem;
-		}
-
-		section div.content {
+		section > div.content {
 			width:98%;
 			height: 70%;
 		}
 
-		section div.content img {
-			position: absolute;
-			right: -50vw;
-			z-index: 0;
-		}
-
-		section div.content div.content-text {
+		section > div.content > div.content-text {
 			width: 100%;
 			align-items: center;
 			justify-content: space-between;
@@ -347,14 +326,35 @@
 			height: 100%;
 		}
 
-		section div.content div.content-text:last-child {
+		section > div.content > div.content-text:last-child {
 			display: none;
 		}
 
-		section div.content div.content-text div.note-window {
+		section > div.content > div.content-text > div.note-window {
 			width: 90%;
-			margin-top: auto;
 			background-color: rgb(136, 123, 67, 0.95);
+		}
+	}
+
+	@media only screen and (max-width: 870px) {
+		div.content > img {
+			display: none;
+		}
+
+		div.content > div.content-text > div.note-window {
+			margin-top: 0;
+			margin: 0;
+		}
+
+		div.content > div.content-text > div.note-window > h3.first-h3 {
+			text-align: center;
+			max-width: 90%;
+		}
+	}
+
+	@media only screen and (max-width: 480px) {
+		header > div h4 {
+			font-size: 0.8rem;
 		}
 
 		h3.first-h3 {

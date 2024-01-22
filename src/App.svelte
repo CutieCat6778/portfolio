@@ -96,7 +96,7 @@
 
 <div class="background"></div>
 
-<svg id="filter" style="display: none;opacity: 0.5;">
+<svg id="filter2" style="display: none;opacity: 0.5;">
 	<filter id="noise">
 		<feTurbulence baseFrequency="0.6" />
 		<feColorMatrix

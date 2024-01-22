@@ -35,6 +35,7 @@
 	{#each textArr as text, key}
 		{#if isVisible}
 			<span
+				id={key + text.content}
 				class="char"
 				in:scale={{
 					delay: 250 + key * 100,

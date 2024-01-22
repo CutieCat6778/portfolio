@@ -6,9 +6,8 @@
 
 	export let input: string;
 
-	const textArr = input
-		.split("")
-		.map((a, i) => ({ visible: i == 0 ? true : false, content: a }));
+	let width: number;
+	let fontSize = 3;
 
 	let isVisible: boolean = false;
 	let targetDiv: Element;
@@ -16,7 +15,7 @@
 	const handleIntersection = (entries: any) => {
 		entries.forEach((entry: any) => {
 			isVisible = entry.isIntersecting;
-			if(isVisible) observer.disconnect();
+			if (isVisible) observer.disconnect();
 		});
 	};
 
@@ -25,41 +24,61 @@
 	});
 
 	onMount(() => {
-		observer.observe(targetDiv);
+		if(width < 590) {
+			fontSize = (width / 590) * 3;
+		}
+		if(width) observer.observe(targetDiv);
 
 		return () => observer.disconnect();
 	});
 </script>
 
-<span bind:this={targetDiv}>
-	{#each textArr as text, key}
-		{#if isVisible}
-			<span
-				class="char"
-				in:scale={{
-					delay: 250 + key * 100,
-					duration: 800,
-					easing: quintOut,
-				}}
-			>
-				<RansomChar char={text.content} num={key} />
-			</span>
-		{/if}
-	{/each}
-</span>
+<svelte:window bind:innerWidth={width}/>
+
+{#each input.split(" ") as textArr, key}
+	<span bind:this={targetDiv}>
+		{#each textArr.split("") as text, key}
+			{#if isVisible}
+				<span
+					id={key + text}
+					class="char"
+					in:scale={{
+						delay: 250 + key * 100,
+						duration: 800,
+						easing: quintOut,
+					}}
+				>
+					<RansomChar char={text} num={key} fontSize={fontSize} />
+				</span>
+			{/if}
+		{/each}
+	</span>
+{/each}
 
 <style>
 	.char {
-        display: inline-block;
-        filter: drop-shadow(1rem 1rem 0.8rem rgba(74, 74, 74, 0.5));
+		display: inline-block;
+		filter: drop-shadow(1rem 1rem 0.8rem rgba(74, 74, 74, 0.5));
+		margin: 0.3rem;
 	}
 
-    span {
-        text-align: center;
-    }
+	span {
+		text-align: center;
+		margin-right: 4.32vw;
+	}
 
-    @media only screen and (max-width: 1000px) {
-       
-    }
+	span:last-child {
+		margin-right: 0;
+	}
+
+	@media only screen and (max-width: 1000px) {
+		span {
+			margin-right: 0;
+			display: block;
+		}
+
+		span:last-child {
+			margin-top: 1rem;
+		}
+	}
 </style>
-

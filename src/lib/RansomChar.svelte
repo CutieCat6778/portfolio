@@ -10,6 +10,8 @@
 		"--color-yellow",
 	];
 
+	console.log(fontSize)
+
 	const fonts = [
 		"--font-1",
 		"--font-2",
@@ -88,11 +90,11 @@
 </script>
 
 <span
-	style="background-color: {backgroundColor};height: {fontSize * 2.33}vw;width: {fontSize * 1.44}vw;{Math.random() < 0.5
+	style="background-color: {backgroundColor};height: {fontSize * 2.33}rem;width: {fontSize * 1.33}rem;{Math.random() < 0.5
 		? `transform: rotate(${angle}deg)`
 		: null};clip-path: {clipPath}"
 >
-	<h1 style="font-family: {fontFamily};font-size: {fontS}vw;font-weight: {fontWeight}">
+	<h1 style="font-family: {fontFamily};font-size: {fontS}rem;font-weight: {fontWeight}">
 		{char}
 	</h1>
 </span>

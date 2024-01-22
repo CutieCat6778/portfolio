@@ -36,6 +36,11 @@
 		{#if isVisible}
 			<span
 				class="char"
+				in:scale={{
+					delay: 250 + key * 100,
+					duration: 800,
+					easing: quintOut,
+				}}
 			>
 				<RansomChar char={text.content} num={key} />
 			</span>

@@ -49,6 +49,13 @@
 					</div>
 					<div
 						class="note-window"
+						transition:fly={{
+							delay: 1000,
+							duration: 800,
+							x: -100,
+							opacity: 0,
+							easing: quintOut,
+						}}
 					>
 						<div class="action-menu">
 							<span></span>
@@ -74,19 +81,19 @@
 				<img
 					src="/2.png"
 					alt="1.png"
-					
+					transition:fly={{
+						delay: 1600,
+						duration: 800,
+						x: -100,
+						opacity: 0,
+						easing: quintOut,
+					}}
 				/>
 			{/if}
 		</div>
 	</section>
 </main>
-<!-- transition:fly={{
-	delay: 1600,
-	duration: 800,
-	x: -100,
-	opacity: 0,
-	easing: quintOut,
-}} -->
+
 <div class="background"></div>
 
 <svg id="filter" style="display: none;opacity: 0.5;">

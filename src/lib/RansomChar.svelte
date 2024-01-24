@@ -105,7 +105,6 @@
 		justify-content: center;
 		align-items: center;
 		margin: 0rem;
-        filter: url(#wavy2);
 	}
 	h1 {
 		margin: 0;
